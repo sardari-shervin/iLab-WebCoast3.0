@@ -1,0 +1,783 @@
+html, .body{
+	height: 100%;
+	width: 100%;
+	font-family: "proxima-nova",sans-serif;
+	overflow-y:hidden;
+}
+
+/*STYLE GénéRAL*/
+/* HEADER */
+	.header{
+		position: relative;
+		z-index: 10000;
+	}
+		.home{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0px;
+			left: 24px;
+		}
+		.title{
+			height: 120px;
+			line-height: 120px;
+			text-align: center;
+			font-size: 42px;
+			font-weight: 300;
+		}
+
+/* CORPS DES PAGE */
+	.container{
+		width: 1024px;
+		height: 548px;
+		/*background: red;*/
+		overflow: hidden;
+		position: fixed;
+	}
+	.container--paiement{
+		width: 464px;
+		padding: 0 24px;
+		background: #0079FE;
+	}
+		.container--subdivision{
+			float: left;
+			height: 548px;
+			width: calc(50% - 48px);
+			padding: 0 24px;
+			position: fixed;
+			overflow: hidden;
+			left: 0;
+		}
+
+		.container--subdivision__noir{background:#3B3B48;}
+		.container--subdivision__bleu{
+			background:#0079FE;
+			-webkit-transform: translateX(100%);
+		}
+		.container--subdivision__orange{
+			background:#F58426;
+			-webkit-transform: translateX(100%);
+		}
+		.container--subdivision__rouge{
+			background:#D63F46;
+			-webkit-transform: translateX(100%);
+		}
+		.container--subdivision__mauve{
+			background:#BA456A;
+			-webkit-transform: translateX(100%);
+		}
+		.container--subdivision__nomargin{
+			width: 50%;
+			padding: 0;
+		}
+
+		.soustitre{
+			color: #fff;
+			font-size: 36px;
+			display: block;
+			height: 96px;
+			line-height: 96px;
+		}
+		.soustitre__height{
+			height: auto;
+			line-height: 140%;
+			margin: 36px 0 24px 0;
+		}
+		.sous--soustitre{
+			color: #fff;
+			font-size: 25px;
+			margin-bottom: 24px;
+		}
+
+/* FOOTER */
+	.footer{height: 60px;}
+		.footer--btn{
+			display: block;
+			width: 235px;
+			height: 50px;
+			line-height: 50px;
+			border: 2px solid #BEBEBE;
+			border-radius: 32px;
+			font-size: 25px;
+			font-weight: 300;
+			text-align: center;
+			margin-top: -10px;
+		}
+		.footer--btn__prec{
+			color: #BEBEBE;
+			float: left;
+			margin-left: 24px;
+		}
+		.footer--btn__suiv{
+			color: #fff;
+			background: #BEBEBE;
+			float: right;
+			margin-right: 24px;
+			opacity: 1;
+		}
+
+		#retourAccueil{
+			color: #fff;
+			background: #0075FF;
+			float: right;
+			margin-right: 24px;
+			opacity: 1;
+			display: block;
+			width: 235px;
+			height: 50px;
+			line-height: 50px;
+			border: 2px solid #0075FF;
+			border-radius: 32px;
+			font-size: 25px;
+			font-weight: 300;
+			text-align: center;
+			margin-top: -10px;
+			position: absolute;
+			right: 0px;
+			display: none;
+		}
+
+/* ACCUEIL */
+	.container--accueil{height: 648px;}
+		.liste--accueil{
+			height: 100%;
+		}
+			.liste--accueil--element{
+				width: 50%;
+				height: 33.3333333333333333%;
+				float: left;
+			}
+			.liste--accueil--element__billet{
+				height: 100%;
+				background: #2F8BFF;
+			}
+			.liste--accueil--element__abo{background: #0079FE;}
+			.liste--accueil--element__pass{background: #005DCE;}
+			.liste--accueil--element__excu{background: #0051B4;}
+				.liste--accueil--lien{
+					display: block;
+					text-align: center;
+					height: 100%;
+					line-height: 216px;
+					font-size: 36px;
+					color: #fff;
+				}
+				.liste--accueil--lien__billet{line-height: 648px;}
+
+/* BILLET */
+/* BILLET TRAJET */
+	.formulaire--trajet{height: 100%;}
+	.form--trajet{overflow: hidden;}
+			.input--trajet{
+				display: block;
+				width: calc(100% - 48px);
+				border: none;
+				border-radius: 26px;
+				margin: 0;
+				font-size: 25px;
+				padding: 12px 24px;
+			}
+			.search--bar{
+				position: relative;
+				top: -53px;
+				background: transparent;
+				outline: none;
+				text-transform: capitalize;
+			}
+
+			.liste--gare{
+				width: 100%;
+				overflow: hidden;
+				margin-bottom: 24px;
+			}	
+				.liste--gare--li{
+					width: 220px;
+					float: left;
+					height: 75px;
+					margin-bottom: 24px;
+					background: rgba(0,0,0,.2);
+				}
+				.liste--gare--li:nth-child(odd){
+					margin-right: 24px;
+				}
+					.liste--gare--btn{
+						display: block;
+						font-size: 24px;
+						height: 75px;
+						line-height: 75px;
+						border-radius: 4px;
+						color: #fff;
+						background-size: cover;
+					}
+
+					.Anvers{
+						background: url(../_img/_gare/anvers.png);background-size: cover;
+					}
+					.Arlon{
+						background: url(../_img/_gare/arlon.png);background-size: cover;
+					}
+					.Bruxelles{
+						background: url(../_img/_gare/bruxelles.png);background-size: cover;
+					}
+					.Charleroi{
+						background: url(../_img/_gare/charleroi.png);background-size: cover;
+					}
+					.Liege{
+						background: url(../_img/_gare/liege.png);background-size: cover;
+					}
+					.Ottignies{
+						background: url(../_img/_gare/ottignies.png);background-size: cover;
+					}
+					.Walibi{
+						background: url(../_img/_excu/walibi.png);background-size: cover;
+					}
+					.Pairi{
+						background: url(../_img/_excu/pairidaiza.png);background-size: cover;
+					}
+					.Zoo{
+						background: url(../_img/_excu/zoo.png);background-size: cover;
+					}
+					.Sea{
+						background: url(../_img/_excu/sealife.png);background-size: cover;
+					}
+					.Plopsa{
+						background: url(../_img/_excu/plopsa.png);background-size: cover;
+					}
+					.Atomium{
+						background: url(../_img/_excu/atomium.png);background-size: cover;
+					}
+						.liste--gare--btn--texte{
+							width: 110px;
+							float: right;
+						}
+/* BILLET OPTIONS */
+	.radio--cache{display: none;}
+	.btn--radio{
+		display: block;
+		width: calc(50% - 48px);
+		padding: 12px 24px;
+		float: left;
+		font-size: 25px;
+		color: #3B3B48;
+		background: #1A1A21;
+		text-align: center;
+		margin-bottom: 24px;
+	}
+	.btn--radio__gauche{border-radius: 26px 0 0 26px;}
+	.btn--radio__droite{border-radius: 0 26px 26px 0;}
+	.radio--cache__aller:checked ~ .btn--radio__aller,
+	.radio--cache__retour:checked ~ .btn--radio__retour,
+	.radio--cache__standard:checked ~ .btn--radio__standard,
+	.radio--cache__reduc:checked ~ .btn--radio__reduc{
+		color: #fff;
+		background: #2E2E3B;
+	}
+
+	.btn--sup{
+		display: block;
+		width: calc(100% - 48px);
+		text-align: center;
+		padding: 12px 0;
+		font-size: 25px;
+		border-radius: 26px;
+		color: #fff;
+		background: #2E2E3B;
+		clear: both;
+		position: absolute;
+		bottom: 48px;
+		left: 24px;
+	}
+/* BILLET EQUIPAGE */
+	.liste--equipage{}
+		.liste--equipage--element{
+			width: 365px;
+			margin: 0 24px 24px 0;
+			height: 75px;
+			background: rgba(0,0,0,.2);
+			float: left;
+		}
+		.liste--equipage--element__nomargin{margin-bottom: 0;}
+		/* Bouton annuler */
+		.liste--equipage--element:nth-child(even){
+			width: 75px;
+			height: 75px;
+			margin: 0;
+			padding: 0;
+		}
+			.liste--equipage--btn{
+				color: white;
+				display: block;
+				overflow: hidden;
+				padding: 12px 24px;
+			}
+				.liste--equipage--titre{
+					display: block;
+					float: left;
+					width: 70%;
+					height: 31px;
+					line-height: 31px;
+					font-size: 25px;
+				}
+				.liste--equipage--titre__lineheight{line-height: 51px;}
+				.liste--equipage--age{
+					display: block;
+					float: left;
+					width: 70%;
+					height: 20px;
+					line-height: 20px;
+					font-size: 18px;
+				}
+				.liste--equipage--nbr{
+					display: block;
+					float: right;
+					width: 25%;
+					height: 51px;
+					line-height: 54px;
+					font-size: 51px;
+					text-align: right;
+				}
+		.liste--reduc{}
+			.liste--reduc--element{
+				width: calc(100% - 48px);
+				padding: 24px;
+				background: rgba(0,0,0,.2);
+				margin-bottom: 24px;
+			}
+			.liste--reduc--element:last-child{
+				height: 91px;
+				line-height: 91px;
+				padding: 0 24px;
+				margin-bottom: 20px;
+			}
+				.liste--reduc--btn{
+					color: #fff;
+					font-size: 25px;
+				}
+					.liste--reduc--btn--soustitre{
+						font-size: 18px;
+						display: block;
+						margin-top:6px;
+					}
+		.paragraphe--avertissement{
+			color: #fff;
+			font-size: 18px;
+			line-height: 150%;
+		}
+
+		.liste--supp{
+			overflow: hidden;
+		}
+/* BILLET CHOIX PAIEMENT */
+	.liste--recap{}
+		.liste--recap--element{
+			font-size: 26px;
+			margin-top: 12px;
+			color: #fff;
+		}
+		/*.liste--recap--element:first-child{margin-top: 36px;}*/
+		.liste--recap--element__margin{margin-top: 36px;}
+		.liste--recap--element__petit{font-size: 18px;}
+	.prix{
+		position: absolute;
+		bottom: 24px;
+		right: 24px;
+		color: #fff;
+		font-size: 42px;
+	}
+
+	.liste--payement{}
+		.liste--payement--element{
+			height: 126px;
+			margin-bottom: 24px;
+			background: rgba(0,0,0,.2);
+		}
+			.liste--payement--btn{
+				color: #fff;
+				display: block;
+				width: calc(100% - 48px);
+				font-size: 25px;
+				padding: 0 24px;
+				padding-top: 36px;
+				height: 90px;
+			}
+				.liste--payement--btn--soustitre{
+					display: block;
+					font-size: 18px;
+					margin-top: 6px;
+				}
+
+/* ABO */
+/* ABO OPTIONS */
+	.liste--abo--options{height: 100%;}
+		.liste--abo--options--element{
+			width: 100%;
+			height: 33.333333333%;
+		}
+		/*.liste--abo--options--element:first-child{background: ;}*/
+		.liste--abo--options--element:nth-child(2){background: #005DCE;}
+		.liste--abo--options--element:last-child{background: #0051B5;}
+			.liste--abo--options--btn{
+				display: block;
+				height: calc(100% - 40px);
+				padding-top: 40px;
+				color: #fff;
+				font-size: 36px;
+			}
+				.liste--abo--options--btn--duree{
+					display: block;
+					text-align: center;
+					margin-bottom: 24px;
+					/*margin: 24px 0 6px 0;*/
+				}
+				.liste--abo--options--btn--prix{
+					display: block;
+					text-align: center;
+					font-size: 42px;
+				}
+
+/* PASS ACCUEIL */
+	.liste--pass{
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+		.liste--pass--element{
+			width: 50%;
+			height: 182px;
+			float: left;
+		}
+		.liste--pass--element__key{
+			background: #3B3B48;
+			height:364px;
+		}
+		.liste--pass--element__rail{background: #0079FE;}
+		.liste--pass--element__go10{background: #005DCE;}
+		.liste--pass--element__jump{background: #1A1A21;}
+		.liste--pass--element__go1{background: #0051B5;}
+		.liste--pass--element:first-child{}
+
+		.container--abo--accueil .liste--pass--element:last-child, .container--abo--accueil .liste--pass--element:nth-child(4){height: 184px;}
+			.liste--pass--btn{
+				color: #fff;
+				font-size: 36px;
+				display: block;
+				text-align: center;
+				height: 100%;
+				line-height: 182px;
+			}
+			.container--abo--accueil .liste--pass--element:first-child .liste--pass--btn{line-height: 364px;}
+
+		/*JUMP*/
+			.container--abo--jump .liste--pass--element{height: 34%;}
+			.liste--jump__1voyage{background: #3B3B48;}
+				.liste--jump__1voyage:first-child .liste--pass--btn{line-height: 182px;}
+			.liste--jump__5voyages{background: #292934;}
+			.liste--jump__10voyages{background: #1A1A21;}
+			.liste--jump__24h{background: #0079FE;}
+			.liste--jump__48h{background: #005DCE;}
+			.liste--jump__aller{background: #0051B5;}
+
+	.plus--entrees{
+		font-size: 22px;
+		color: #fff;
+	}
+
+/* PAYEMENT */
+	.paragraphe--paiement{
+		font-size: 25px;
+		color: #fff;
+		margin-bottom: 96px;
+	}
+	.img--paiement{
+		display: block;
+		width: 256px;
+		margin: 0 auto;
+	}
+	
+/* PAYE */
+	.paragraphe--paye{
+		font-size: 25px;
+		color: #fff;
+		margin-top: 6px;
+	}
+	.paragraphe--paye__nomargin{margin-top: 0;}
+	.img--paye{
+		display: block;
+		width: 400px;
+		/*margin-left: -27px;*/
+		margin-top: 36px;
+		/*float: right;*/
+		position: absolute;
+		bottom: 24px;
+		left: -3px;
+	}
+	.soustitre--paye{clear: both;}
+	.paragraphe--voyage{
+		font-size: 18px;
+		margin-top: 24px;
+		color: #fff;
+	}
+
+
+.btn--active{-webkit-transition: all .1s ease-out;}
+.btn--active:active{
+	background: #fff;
+	color: #B32E4F;
+}
+
+/**/
+#supprEquipageEnfant, #supprEquipageJeune, #supprEquipageAdulte, #supprEquipageSenior, #supprAnimaux, #supprVelo,#supprEquipageEnfantExcu, #supprEquipageJeuneExcu, #supprEquipageAdulteExcu, #supprEquipageSeniorExcu {display: none;}
+.liste--equipage--btn--croix{width: 75px;}
+
+
+.autreMoyenPaiement{
+	margin-top: 94px;
+	background: rgba(0,0,0,.2);
+	color: #fff;
+	display: block;
+	width: calc(100% - 48px);
+	font-size: 20px;
+	padding: 0 24px;
+	padding-top: 20px;
+	height: 40px;
+}
+.textAccueil{
+	color: #BEBEBE;
+	position: absolute;
+	top: 90px;
+	left: 40px;
+}
+
+
+
+
+#div_horloge{
+	color: #BEBEBE;
+	font-size: 20px;
+	position: absolute;
+	right: 20px;
+	top: 60px;
+}
+
+.agePass{
+	font-size: 20px;
+	position: absolute;
+	top: 50px;
+	left: 215px;
+}
+.agePass2{
+	font-size: 20px;
+	position: absolute;
+	top: 50px;
+	left: 725px;
+}
+.agePass3{
+	font-size: 20px;
+	position: absolute;
+	top: 230px;
+	left: 730px;
+}
+.agePass4{
+	font-size: 20px;
+	position: absolute;
+	top: 410px;
+	left: 730px;
+}
+
+#formTrajetExcu{
+	margin-top: 50px;
+}
+
+
+
+
+.carte, .mobile, .especes{
+	display: none;
+	position: relative;
+	top: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.carte, #carte, #smartphone, .mobile, #especes, .especes {
+    width: 400px;
+    height: 208px;
+    margin-top: -100px;
+}
+
+.carte {
+    -webkit-animation: carte ease 1.5s infinite;
+}
+
+@keyframes carte {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    15% {
+        -webkit-transform: rotate(-10deg);
+    }
+    30% {
+        -webkit-transform: rotate(10deg);
+    }
+    45% {
+        -webkit-transform: rotate(-10deg);
+    }    
+    60% {
+        -webkit-transform: rotate(10deg);
+    }
+    80% {
+        -webkit-transform: rotate(-5deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
+} 
+
+
+
+
+#ondes1 {
+    -webkit-animation: mobileanim1 ease 1.5s infinite;
+    transform-origin: center;
+}
+
+#ondes2 {
+    -webkit-animation: mobileanim2 ease 1.5s infinite;
+    transform-origin: center;
+}
+
+@keyframes mobileanim1 {
+    
+    0% {
+        -webkit-transform: translateY(1);        
+    }
+    50% {
+        -webkit-transform: translateY(-6px);
+    }
+    100% {
+        -webkit-transform: translateY(1);
+    }
+    
+}
+
+@keyframes mobileanim2 {
+    
+    0% {
+        -webkit-transform: translateY(1);        
+    }
+    50% {
+        -webkit-transform: translateY(-12px);
+    }
+    100% {
+        -webkit-transform: translateY(1);
+    }
+    
+}
+
+
+#piece1 {
+    -webkit-animation: pieceanim1 ease 1.5s infinite;
+    transform-origin: center;
+}
+
+#piece2 {
+    -webkit-animation: pieceanim2 ease 1.5s infinite;
+    transform-origin: center;
+    -webkit-animation-delay: .2s;
+}
+
+@keyframes pieceanim1 {
+    
+    0% {
+     -webkit-transform : translateY(0px);   
+    }
+    5% {
+     -webkit-transform : translateY(5px);   
+    }
+    50% {
+     -webkit-transform : translateY(-60px);   
+    }
+    95% {
+        -webkit-transform: translateY(0px);
+    }
+    100% {
+     -webkit-transform : translateY(0px);   
+    }
+   
+}
+
+@keyframes pieceanim2 {
+    
+    0% {
+     -webkit-transform : translateY(0px);   
+    }
+    10% {
+     -webkit-transform : translateY(5px);   
+    }
+    50% {
+     -webkit-transform : translateY(-40px);   
+    }
+    95% {
+        -webkit-transform: translateY(0px);
+    }
+    100% {
+     -webkit-transform : translateY(0px);   
+    }
+   
+}
+

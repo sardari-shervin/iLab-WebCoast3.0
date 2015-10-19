@@ -1,0 +1,1023 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="apple-mobile-web-app-title" content="SNCB">
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <title>SNCB</title>
+
+        <link rel="stylesheet" href="_css/reset.css">
+        <link rel="stylesheet" href="_css/style.css">
+        <link rel="stylesheet" href="_css/anim.css">
+        <link rel="author" href="humans.txt">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="favicons/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/manifest.json">
+        <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+        <meta name="theme-color" content="#0075ff">
+        <script src="https://use.typekit.net/nzu5urr.js"></script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    </head>
+    <body class="body">
+
+        <header class="header">
+            <img class="home" src="_img/home--namur.svg" alt="" onclick="reloadpage();">
+            <a href="#" class="home textAccueil">‹ Accueil</a>
+            <h1 class="title">Bienvenue</h1>
+            <div id="div_horloge"></div>
+
+        </header>
+
+        <!-- MENU ACCUEIL -->
+        <div class="container container--accueil">
+            <ul class="liste--accueil">
+                <li class="liste--accueil--element liste--accueil--element__billet" id="btnBilletStandart">
+                    <a class="liste--accueil--lien liste--accueil--lien__billet" href="#">Billet standard</a>
+                </li>
+                <li class="liste--accueil--element liste--accueil--element__abo" id="btnAbo">
+                    <a class="liste--accueil--lien" href="#">Abonnement</a>
+                </li>
+                <li class="liste--accueil--element liste--accueil--element__pass" id="btnPass">
+                    <a class="liste--accueil--lien" href="#">Pass</a>
+                </li>
+                <li class="liste--accueil--element liste--accueil--element__excu" id="btnExcu">
+                    <a class="liste--accueil--lien" href="#">B-excursions</a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <!-- BILLET TRAJET-->
+        <div class="container container--billet--trajet containerNotHome">
+
+            <form class="formulaire--trajet">
+
+                <div class="container--subdivision container--subdivision__noir">
+                    <label class="soustitre" for="depart">Vous partez de...</label>
+                    <input type="text" class="input--trajet inputDepartBillet" name="depart" id="depart" placeholder="Namur" value="Namur"  onblur="caps(this.id)">
+                    <input type="text" class="input--trajet search--bar searchDepartBillet" id="search-bar">
+                </div>
+
+                <div class="container--subdivision container--subdivision__bleu">
+                    <h2 class="soustitre">Vous allez à...</h2>
+
+                    <input type="text" class="input--trajet inputArriveeBillet" name="arrivee" id="arrivee" placeholder="Entrez une une gare">
+                    <input type="text" class="input--trajet search--bar searchArriveeBillet" id="search-bar-2">
+
+                    <ul class="liste--gare">
+                        <li class="liste--gare--li" onclick="sessionStorage_gare2('gareArrivee1');">
+                            <a class="liste--gare--btn listeGareBtn Ottignies" href="#" ><span id="gareArrivee1" class="liste--gare--btn--texte">Ottignies</span></a>
+                        </li>
+                        <li class="liste--gare--li" onclick="sessionStorage_gare2('gareArrivee2');">
+                            <a class="liste--gare--btn listeGareBtn Bruxelles" href="#"><span id="gareArrivee2" class="liste--gare--btn--texte">Bruxelles</span></a>
+                        </li>
+                        <li class="liste--gare--li" onclick="sessionStorage_gare2('gareArrivee3');">
+                            <a class="liste--gare--btn listeGareBtn Liege" href="#"><span id="gareArrivee3" class="liste--gare--btn--texte">Liège</span></a>
+                        </li>
+                        <li class="liste--gare--li" onclick="sessionStorage_gare2('gareArrivee4');">
+                            <a class="liste--gare--btn listeGareBtn Charleroi" href="#"><span id="gareArrivee4" class="liste--gare--btn--texte">Charleroi</span></a>
+                        </li>
+                        <li class="liste--gare--li" onclick="sessionStorage_gare2('gareArrivee5');">
+                            <a class="liste--gare--btn listeGareBtn Anvers" href="#"><span id="gareArrivee5" class="liste--gare--btn--texte">Anvers</span></a>
+                        </li>
+                        <li class="liste--gare--li" onclick="sessionStorage_gare2('gareArrivee6');">
+                            <a class="liste--gare--btn listeGareBtn Arlon" href="#"><span id="gareArrivee6" class="liste--gare--btn--texte">Arlon</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+
+        <!-- BILLET OPTIONS -->
+        <div class="container container--billet--options containerNotHome">
+
+            <div class="container--subdivision container--subdivision__noir">
+
+                <h2 class="soustitre"><span id="gareDepart">Namur</span> › <span id="gareArrivee">Ottignies</span></h2>
+
+                <form class="form--trajet" id="formTrajet">
+                    <input type="radio" class="radio--cache radio--cache__aller" name="allerRetour" id="Aller" checked value="Aller Simple" onclick="sessionStorage.typeTrajet=this.value" >
+                    <label for="Aller" class="btn--radio btn--radio__gauche btn--radio__aller">Aller Simple</label>
+
+                    <input type="radio" class="radio--cache radio--cache__retour" name="allerRetour" id="AllerRetour" value="Aller Retour" value="Aller Retour" onclick="sessionStorage.typeTrajet=this.value">
+                    <label for="AllerRetour" class="btn--radio btn--radio__droite btn--radio__retour">Aller-Retour</label>
+
+
+                    <input type="radio" class="radio--cache radio--cache__standard" id="btnbtnbtn" name="tarifStandart" id="standard" checked='checked' onclick="sessionStorage.typeTarif='Tarif Standard'">
+                    <label for="standard" class="btn--radio btn--radio__gauche btn--radio__standard btnStandard">Tarif standard</label>
+
+                    <input type="radio" class="radio--cache radio--cache__reduc btnReduc" name="tarif" id="reduc" value="Réduc">
+                    <label for="reduc" class="btn--radio btn--radio__droite btn--radio__reduc btnReduc" id="ReducValid">Réduction</label>
+                </form>
+                <ul class="liste--equipage liste--supp">
+                    <li class="liste--equipage--element">
+                        <a class="liste--equipage--btn btn--active" href="#" onclick="nbrEquipage('nbrVelo', 'supprVelo'); sessionStorage_equipage(); ">
+                                <span class="liste--equipage--titre liste--equipage--titre__lineheight">Vélo</span>
+                                <span class="liste--equipage--nbr" id="nbrVelo">0</span>
+                        </a>
+                    </li>
+                    <li class="liste--equipage--element" id="supprVelo" onclick="supprEquipage('nbrVelo', 'supprVelo'); sessionStorage_equipage();">
+                        <img class="liste--equipage--btn--croix btn--active" src="_img/croix.png">
+                    </li>
+
+
+
+
+
+
+                    <li class="liste--equipage--element liste--equipage--element__nomargin">
+                        <a class="liste--equipage--btn btn--active" href="#" onclick="nbrEquipage('nbrAnimaux', 'supprAnimaux'); sessionStorage_equipage(); ">
+                            <span class="liste--equipage--titre">Animaux</span>
+                            <span class="liste--equipage--nbr" id="nbrAnimaux">0</span>
+                            <span class="liste--equipage--age">En laisse</span>
+                        </a>
+                    </li>
+                    <li class="liste--equipage--element" id="supprAnimaux" onclick="supprEquipage('nbrAnimaux', 'supprAnimaux'); sessionStorage_equipage();">
+                       <img class="liste--equipage--btn--croix btn--active" src="_img/croix.png">
+                    </li>
+                </ul>
+
+                <a class="btn--sup" href="#">+ Suppléments</a>
+            </div>
+
+
+            <div class="container--subdivision container--subdivision__bleu">
+
+                <h2 class="soustitre">Votre équipage</h2>
+
+                <ul class="liste--equipage">
+                    <li class="liste--equipage--element">
+                        <a class="liste--equipage--btn btn--active" href="#" onclick="nbrEquipage('nbrEquipageEnfant', 'supprEquipageEnfant'); sessionStorage_equipage(); ">
+                                <span class="liste--equipage--titre">Enfant</span>
+                                <span class="liste--equipage--nbr" id="nbrEquipageEnfant">0</span>
+                                <span class="liste--equipage--age"> - 12 ans</span>
+                        </a>
+                    </li>
+                    <li class="liste--equipage--element" id="supprEquipageEnfant" onclick="supprEquipage('nbrEquipageEnfant', 'supprEquipageEnfant'); sessionStorage_equipage(); ">
+                        <img class="liste--equipage--btn--croix btn--active" src="_img/croix.png">
+                    </li>
+
+
+
+
+
+                    <li class="liste--equipage--element">
+                        <a class="liste--equipage--btn btn--active" href="#" onclick="nbrEquipage('nbrEquipageJeune', 'supprEquipageJeune'); sessionStorage_equipage(); ">
+                            <span class="liste--equipage--titre">Jeune</span>
+                            <span class="liste--equipage--nbr" id="nbrEquipageJeune">0</span>
+                            <span class="liste--equipage--age">12 › 25 ans</span>
+                        </a>
+                    </li>
+                    <li class="liste--equipage--element" id="supprEquipageJeune" onclick="supprEquipage('nbrEquipageJeune', 'supprEquipageJeune'); sessionStorage_equipage(); ">
+                       <img class="liste--equipage--btn--croix btn--active" src="_img/croix.png">
+                    </li>
+
+
+
+
+
+
+                    <li class="liste--equipage--element">
+                        <a class="liste--equipage--btn btn--active" href="#" onclick="nbrEquipage('nbrEquipageAdulte', 'supprEquipageAdulte'); sessionStorage_equipage(); ">
+                            <span class="liste--equipage--titre">Adulte</span>
+                            <span class="liste--equipage--nbr" id="nbrEquipageAdulte">0</span>
+                            <span class="liste--equipage--age">26 › 65 ans</span>
+                        </a>
+                    </li>
+                    <li class="liste--equipage--element" id="supprEquipageAdulte" onclick="supprEquipage('nbrEquipageAdulte', 'supprEquipageAdulte'); sessionStorage_equipage(); ">
+                       <img class="liste--equipage--btn--croix btn--active" src="_img/croix.png">
+                    </li>
+
+                    <li class="liste--equipage--element">
+                        <a class="liste--equipage--btn btn--active" href="#" onclick="nbrEquipage('nbrEquipageSenior', 'supprEquipageSenior'); sessionStorage_equipage(); ">
+                            <span class="liste--equipage--titre">Senior</span>
+                            <span class="liste--equipage--nbr" id="nbrEquipageSenior">0</span>
+                            <span class="liste--equipage--age">+ 65 ans</span></a>
+                    </li>
+                    <li class="liste--equipage--element" id="supprEquipageSenior" onclick="supprEquipage('nbrEquipageSenior', 'supprEquipageSenior'); sessionStorage_equipage(); ">
+                        <img class="liste--equipage--btn--croix btn--active" src="_img/croix.png">
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="container--subdivision container--subdivision__bleu container--reduc">
+
+                <h2 class="soustitre">Votre réduction</h2>
+
+                <ul class="liste--reduc">
+                    <li class="liste--reduc--element btn_reduc" onclick="sessionstorageReduc1();">
+                        <a class="liste--reduc--btn">Réduction -50%<span class="liste--reduc--btn--soustitre">Famille nombreuse, intervention majorée...</span></a>
+                    </li>
+                    <li class="liste--reduc--element  btn_reduc"  onclick="sessionstorageReduc2();">
+                        <a class="liste--reduc--btn">Réduction -75%<span class="liste--reduc--btn--soustitre">Demandeurs d'emploi FOREM-ACTIRIS</span></a>
+                    </li>
+                    <li class="liste--reduc--element btnStandard">
+                        <a class="liste--reduc--btn">Pas de réduction</a>
+                    </li>
+                </ul>
+
+                <p class="paragraphe--avertissement">Attention, tous les passagers doivent obligatoirement présenter leur carte de réduction dans le wagon.</p>
+
+            </div>
+        </div>
+
+        <!-- BILLET RECAP -->
+        <div class="container container--billet--recap containerNotHome">
+            <div class="container--subdivision container--subdivision__noir">
+                <h2 class="soustitre"><span id="gareDepartRecap">Namur</span> › <span id="gareArriveeRecap"></span></h2>
+
+                <ul class="liste--recap">
+                    <li class="liste--recap--element" id="typeTrajet">Aller simple</li>
+                    <li class="liste--recap--element" id="typeTarif">Tarif standard</li>
+                    <li class="liste--recap--element liste--recap--element__margin" id="nbrEnfants"></li>
+                    <li class="liste--recap--element" id="nbrJeunes"></li>
+                    <li class="liste--recap--element" id="nbrAdultes"></li>
+                    <li class="liste--recap--element" id="nbrSenior"></li>
+                    <li class="liste--recap--element" id="nbrVeloRecap"></li>
+                    <li class="liste--recap--element" id="nbrAnimauxRecap"></li>
+                </ul>
+                <p class="prix">245,-€</p>
+            </div>
+
+            <div class="container--subdivision container--subdivision__bleu">
+
+                <h2 class="soustitre">Payer</h2>
+
+                <ul class="liste--payement">
+                    <li class="liste--payement--element">
+                        <a class="liste--payement--btn cardToPay" href="#">Par carte<span class="liste--payement--btn--soustitre">Bancontact, Visa, Mastercard</span></a>
+                    </li>
+                    <li class="liste--payement--element">
+                        <a class="liste--payement--btn liquidToPay" href="#">En espèce<span class="liste--payement--btn--soustitre">Pièces ou billet</span></a>
+                    </li>
+                    <li class="liste--payement--element">
+                        <a class="liste--payement--btn phoneToPay" href="#">Via smartphone<span class="liste--payement--btn--soustitre">Pay, AndroidPay</span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+
+        <!-- ABONNEMENT ACCUEIL -->
+        <div class="container container--abo--accueil containerNotHome">
+            <div class="container--subdivision container--subdivision__noir">
+                <h2 class="soustitre soustitre__height">Placez votre carte MOBIB sur la machine pour commencer</h2>
+
+                <p class="paragraphe--avertissement">Si vous ne possédez pas encore de MOBIB, veuillez vous adresser au guichet le plus proche</p>
+            </div>
+
+            <div class="container--subdivision container--subdivision__bleu">
+                <svg  x="0px" y="0px" width="500px"
+             height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500">
+                <g id="pop">
+                    <rect x="248.149" y="107.147" fill="#FFFFFF" width="5.011" height="5.011"/>
+                    
+                        <rect x="75.827" y="127.147" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -68.7352 93.3641)" fill="#FFFFFF" width="5.011" height="5.011"/>
+                    
+                        <rect x="420.649" y="127.147" transform="matrix(0.7071 -0.7071 0.7071 0.7071 32.2607 337.1898)" fill="#FFFFFF" width="5.011" height="5.011"/>
+                    <rect x="248.149" y="387.078" fill="#FFFFFF" width="5.011" height="5.011"/>
+                    
+                        <rect x="75.827" y="367.078" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -238.3921 163.6382)" fill="#FFFFFF" width="5.011" height="5.011"/>
+                    
+                        <rect x="420.649" y="367.078" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -137.3961 407.464)" fill="#FFFFFF" width="5.011" height="5.011"/>
+                    <rect x="440.649" y="246.855" fill="#FFFFFF" width="5.011" height="5.011"/>
+                    <rect x="55.827" y="246.855" fill="#FFFFFF" width="5.011" height="5.011"/>
+                </g>
+                <g id="carte-contenu">
+                    <g>
+                        <path fill="#FFFFFF" d="M350.654,226.5c-15.164,0-27.5-12.337-27.5-27.5s12.336-27.5,27.5-27.5s27.5,12.337,27.5,27.5
+                            S365.818,226.5,350.654,226.5z M350.654,176.5c-12.407,0-22.5,10.094-22.5,22.5s10.093,22.5,22.5,22.5s22.5-10.094,22.5-22.5
+                            S363.061,176.5,350.654,176.5z"/>
+                    </g>
+                    <g>
+                        <path fill="#FFFFFF" d="M126.883,258.581l-8.064-9.072l8.064-8.921h3.78l-8.064,8.921l8.064,9.072H126.883z"/>
+                    </g>
+                    <path fill="#FFFFFF" d="M170.998,222.25h-24.75V247v29.75h29.75h24.75V252v-29.75H170.998z M195.748,271.75h-19.75v-9.875h-5v9.875
+                        h-19.75V252h9.875v-5h-9.875v-19.75h19.75v9.875h5v-9.875h19.75V247h-9.875v5h9.875V271.75z"/>
+                    <g>
+                        <path fill="#FFFFFF" d="M240.693,315.716v-27.67l-11.441,27.67h-1.713l-11.391-27.67v27.67h-4.183V282.1h5.998l10.433,25.3
+                            l10.483-25.3h5.998v33.616H240.693z"/>
+                        <path fill="#FFFFFF" d="M253.394,298.933c0-9.929,6.703-17.388,16.683-17.388c9.929,0,16.682,7.459,16.682,17.388
+                            s-6.753,17.388-16.682,17.388C260.097,316.32,253.394,308.861,253.394,298.933z M282.424,298.933
+                            c0-7.862-4.839-13.658-12.348-13.658c-7.561,0-12.349,5.796-12.349,13.658c0,7.812,4.788,13.658,12.349,13.658
+                            C277.585,312.591,282.424,306.745,282.424,298.933z"/>
+                        <path fill="#FFFFFF" d="M295.326,315.716V282.1h14.969c5.847,0,9.425,3.527,9.425,8.567c0,4.233-2.822,7.056-5.896,7.711
+                            c3.578,0.555,6.552,4.234,6.552,8.266c0,5.394-3.578,9.072-9.727,9.072H295.326z M315.386,291.271
+                            c0-3.023-2.017-5.442-5.796-5.442h-10.08v10.836h10.08C313.369,296.665,315.386,294.347,315.386,291.271z M316.041,306.19
+                            c0-3.074-2.117-5.796-6.25-5.796H299.51v11.592h10.281C313.723,311.986,316.041,309.769,316.041,306.19z"/>
+                        <path fill="#FFFFFF" d="M329.044,315.716V282.1h4.183v33.616H329.044z"/>
+                        <path fill="#FFFFFF" d="M343.105,315.716V282.1h14.969c5.846,0,9.425,3.527,9.425,8.567c0,4.233-2.822,7.056-5.897,7.711
+                            c3.579,0.555,6.553,4.234,6.553,8.266c0,5.394-3.579,9.072-9.728,9.072H343.105z M363.164,291.271
+                            c0-3.023-2.016-5.442-5.796-5.442h-10.08v10.836h10.08C361.148,296.665,363.164,294.347,363.164,291.271z M363.819,306.19
+                            c0-3.074-2.116-5.796-6.249-5.796h-10.282v11.592h10.282C361.501,311.986,363.819,309.769,363.819,306.19z"/>
+                    </g>
+                </g>
+                <g id="carte-contour">
+                    <polygon fill="none" stroke="#FFFFFF" stroke-width="5" stroke-miterlimit="10" points="300,149.5 200,149.5 100,149.5 100,249.5 
+                        100,349.5 200,349.5 300,349.5 400,349.5 400,249.5 400,149.5     "/>
+                </g>
+                <g id="fleches">
+                    <g>
+                        <path fill="#FFFFFF" d="M267.792,383.875l-18.001,16.001l-17.701-16.001v-7.501l17.701,16.002l18.001-16.002V383.875z"/>
+                    </g>
+                </g>
+                </svg>
+            </div>
+        </div>
+
+        <!-- ABONNEMENT OPTIONS -->
+        <div class="container container--abo--options containerNotHome">
+            <div class="container--subdivision container--subdivision__noir">
+                <h2 class="soustitre">Namur ‹ › Ottignies</h2>
+                <h3 class="sous--soustitre">À renouveler dans les 3 jours.</h3>
+                <p class="paragraphe--avertissement">Pour tout changement d'abonnement, ou de trajet, veuillez vous rendre au guichet.</p>
+            </div>
+
+            <div class="container--subdivision container--subdivision__bleu container--subdivision__nomargin">
+                <ul class="liste--abo--options">
+                    <li class="liste--abo--options--element" onclick="sessionStorageAbo('dureeRenewAbo1');">
+                        <a class="liste--abo--options--btn" href="#"><span class="liste--abo--options--btn--duree" id="dureeRenewAbo1">1 mois</span><span class="liste--abo--options--btn--prix">35,-€</span></a>
+                    </li>
+                    <li class="liste--abo--options--element" onclick="sessionStorageAbo('dureeRenewAbo2');">
+                        <a class="liste--abo--options--btn" href="#"><span class="liste--abo--options--btn--duree" id="dureeRenewAbo2">3 mois</span><span class="liste--abo--options--btn--prix">145,-€</span></a>
+                    </li>
+                    <li class="liste--abo--options--element" onclick="sessionStorageAbo('dureeRenewAbo3');">
+                        <a class="liste--abo--options--btn" href="#"><span class="liste--abo--options--btn--duree" id="dureeRenewAbo3">12 mois</span><span class="liste--abo--options--btn--prix">245,-€</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ABONNEMENT RECAP -->
+        <div class="container container--abo--recap containerNotHome">
+            <div class="container--subdivision container--subdivision__noir">
+                <h2 class="soustitre">Namur ‹ › Ottignies</h2>
+
+                <ul class="liste--recap">
+                    <li class="liste--recap--element liste--recap--element__margin liste--recap--element__petit">Durée de renouvellement: <span id="dureeRenewAbo"></span></li>
+
+                </ul>
+
+                <p class="prix">245,-€</p>
+            </div>
+
+            <div class="container--subdivision container--subdivision__bleu">
+
+                <h2 class="soustitre">Payer</h2>
+
+                <ul class="liste--payement">
+                    <li class="liste--payement--element">
+                        <a class="liste--payement--btn cardToPay" href="#">Par carte<span class="liste--payement--btn--soustitre">Bancontact, Visa, Mastercard</span></a>
+                    </li>
+                    <li class="liste--payement--element">
+                        <a class="liste--payement--btn liquidToPay" href="#">En espèce<span class="liste--payement--btn--soustitre">Pièces ou billet</span></a>
+                    </li>
+                    <li class="liste--payement--element phoneToPay">
+                        <a class="liste--payement--btn" href="#">Via smartphone<span class="liste--payement--btn--soustitre">Pay, AndroidPay</span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- PASS ACCUEIL -->
+        <div class="container container--pass--accueil containerNotHome">
+
+            <ul class="liste--pass">
+                <li class="liste--pass--element liste--pass--element__key btnPassToRecap" onclick="sessionStoragePass('typePass1');">
+                    <a class="liste--pass--btn" id="typePass1" href="#">Key Card<span class="agePass">- 26 ans</span></a>
+                </li>
+                <li class="liste--pass--element liste--pass--element__rail btnPassToRecap" onclick="sessionStoragePass('typePass2');">
+                    <a class="liste--pass--btn" id="typePass2" href="#">Rail Pass 10<span class="agePass2">+ 26 ans</span></a>
+                </li>
+                <li class="liste--pass--element liste--pass--element__go10 btnPassToRecap" onclick="sessionStoragePass('typePass3');">
+                    <a class="liste--pass--btn" id="typePass3" href="#">Go Pass 10<span class="agePass3">- 26 ans</span></a>
+                </li>
+                <li class="liste--pass--element liste--pass--element__jump" id="btnPassToJump">
+                    <a class="liste--pass--btn" href="#">Pass Jump</a>
+                </li>
+                <li class="liste--pass--element liste--pass--element__go1 btnPassToRecap" onclick="sessionStoragePass('typePass4');">
+                    <a class="liste--pass--btn" id="typePass4" href="#">Go Pass 1<span class="agePass4">- 26 ans</span></a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- PASS JUMP -->
+        <div class="container container--pass--jump containerNotHome">
+
+            <ul class="liste--pass">
+                <li class="liste--pass--element liste--jump__1voyage btnJumpPassToRecap" onclick="sessionStoragePassJump('typePassJump1');">
+                    <a class="liste--pass--btn" href="#" id="typePassJump1">Jump 1 voyage</a>
+                </li>
+                <li class="liste--pass--element liste--jump__24h btnJumpPassToRecap" onclick="sessionStoragePassJump('typePassJump2');">
+                    <a class="liste--pass--btn" href="#" id="typePassJump2">Jump 24h</a>
+                </li>
+                <li class="liste--pass--element liste--jump__5voyages btnJumpPassToRecap"  onclick="sessionStoragePassJump('typePassJump3');">
+                    <a class="liste--pass--btn" href="#" id="typePassJump3">Jump 5 voyages</a>
+                </li>
+                <li class="liste--pass--element liste--jump__48h btnJumpPassToRecap" onclick="sessionStoragePassJump('typePassJump4');">
+                    <a class="liste--pass--btn" href="#" id="typePassJump4">Jump 48h</a>
+                </li>
+                <li class="liste--pass--element liste--jump__10voyages btnJumpPassToRecap"  onclick="sessionStoragePassJump('typePassJump5');">
+                    <a class="liste--pass--btn" href="#" id="typePassJump5">Jump 10 voyages</a>
+                </li>
+                <li class="liste--pass--element liste--jump__aller btnJumpPassToRecap"  onclick="sessionStoragePassJump('typePassJump6');">
+                    <a class="liste--pass--btn" href="#" id="typePassJump6">Jump Aller-Retour</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- PASS RECAP -->
+        <div class="container container--pass--recap containerNotHome">
+            <div class="container--subdivision container--subdivision__noir">
+                <h2 class="soustitre"><span id="typePass">TypePass</span></h2>
+
+                <ul class="liste--recap">
+                    <li class="liste--recap--element liste--recap--element__margin">1O trajets</li>
+                     <li class="liste--recap--element liste--recap--element__margin">Valable en Belgique</li>
+                    <li class="liste--recap--element">Jusqu’au 16 / 10 / 2016</li>
+                </ul>
+
+                <p class="prix">51,-€</p>
+            </div>
+
+            <div class="container--subdivision container--subdivision__bleu">
+
+                <h2 class="soustitre">Payer</h2>
+
+                <ul class="liste--payement">
+                    <li class="liste--payement--element">
+                        <a class="liste--payement--btn cardToPay" href="#">Par carte<span class="liste--payement--btn--soustitre">Bancontact, Visa, Mastercard</span></a>
+                    </li>
+                    <li class="liste--payement--element">
+                        <a class="liste--payement--btn liquidToPay" href="#">En espèce<span class="liste--payement--btn--soustitre">Pièces ou billet</span></a>
+                    </li>
+                    <li class="liste--payement--element">
+                        <a class="liste--payement--btn phoneToPay" href="#">Via smartphone<span class="liste--payement--btn--soustitre">Pay, AndroidPay</span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <div class="container container--jump--recap containerNotHome">
+            <div class="container--subdivision container--subdivision__noir">
+                <h2 class="soustitre" id="typePassJump">TypePass</h2>
+
+                <ul class="liste--recap">
+                    <li class="liste--recap--element liste--recap--element__margin">Valable en Belgique</li>
+                    <li class="liste--recap--element">Jusqu’au 16/10/2016</li>
+                </ul>
+
+                <p class="prix">51,-€</p>
+            </div>
+
+            <div class="container--subdivision container--subdivision__bleu">
+
+                <h2 class="soustitre">Payer</h2>
+
+                <ul class="liste--payement">
+                    <li class="liste--payement--element">
+                        <a class="liste--payement--btn cardToPay" href="#">Par carte<span class="liste--payement--btn--soustitre">Bancontact, Visa, Mastercard</span></a>
+                    </li>
+                    <li class="liste--payement--element">
+                        <a class="liste--payement--btn liquidToPay" href="#">En espèce<span class="liste--payement--btn--soustitre">Pièces ou billet</span></a>
+                    </li>
+                    <li class="liste--payement--element">
+                        <a class="liste--payement--btn phoneToPay" href="#">Via smartphone<span class="liste--payement--btn--soustitre">Pay, AndroidPay</span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+
+        
+        <!-- EXCU TRAJET-->
+        <div class="container container--excu--trajet containerNotHome">
+
+            <form class="formulaire--trajet">
+
+                <div class="container--subdivision container--subdivision__noir">
+                    <label class="soustitre" for="depart">Vous partez de...</label>
+                    <input type="text" class="input--trajet inputDepartExcu" name="depart" id="departExcu" placeholder="Namur" value="Namur">
+                    <input type="text" class="input--trajet search--bar searchDepartExcu" id="search-barExcu-2">
+                </div>
+
+                <div class="container--subdivision container--subdivision__bleu">
+                    <h2 class="soustitre">Vous allez à...</h2>
+                    <input type="text" class="input--trajet inputArriveeExcu" name="depart" id="arriveeExcu" placeholder="Entrez le nom d'une excursion">
+                    <input type="text" class="input--trajet search--bar searchArriveeExcu" id="search-bar-Excu">
+
+
+
+                    <ul class="liste--gare">
+                        <li class="liste--gare--li" onclick="sessionStorage_excu('ExcuArrivee1');">
+                            <a class="liste--gare--btn Walibi liste--excu--btn" href="#"><span class="liste--gare--btn--texte" id="ExcuArrivee1">Walibi</span></a>
+                        </li>
+                        <li class="liste--gare--li" onclick="sessionStorage_excu('ExcuArrivee2');">
+                            <a class="liste--gare--btn Zoo liste--excu--btn" href="#"><span class="liste--gare--btn--texte" id="ExcuArrivee2">Zoo</span></a>
+                        </li>
+                        <li class="liste--gare--li" onclick="sessionStorage_excu('ExcuArrivee3');">
+                            <a class="liste--gare--btn Pairi liste--excu--btn" href="#"><span class="liste--gare--btn--texte" id="ExcuArrivee3">Pairidaiza</span></a>
+                        </li>
+                        <li class="liste--gare--li" onclick="sessionStorage_excu('ExcuArrivee4');">
+                            <a class="liste--gare--btn Atomium liste--excu--btn" href="#"><span class="liste--gare--btn--texte" id="ExcuArrivee4">Atomium</span></a>
+                        </li>
+                        <li class="liste--gare--li" onclick="sessionStorage_excu('ExcuArrivee5');">
+                            <a class="liste--gare--btn Plopsa liste--excu--btn" href="#"><span class="liste--gare--btn--texte" id="ExcuArrivee5">Plopsa</span></a>
+                        </li>
+                        <li class="liste--gare--li" onclick="sessionStorage_excu('ExcuArrivee6');">
+                            <a class="liste--gare--btn Sea liste--excu--btn" href="#"><span class="liste--gare--btn--texte" id="ExcuArrivee6">SeaLife</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+
+        <!-- EXCU OPTIONS -->
+        <div class="container container--excu--options containerNotHome">
+            <div class="container--subdivision container--subdivision__noir">
+                <h2 class="soustitre"><span id="gareDepartExcu">Namur</span> ‹ › <span id="gareArriveeExcu">Gare d'arrivée</span></h2>
+
+                <p class="plus--entrees">Le prix des entrées est compris dans le prix total.</p>
+                <ul class="liste--recap">
+
+                <form class="form--trajet" id="formTrajetExcu">
+                
+                    <input type="radio" class="radio--cache radio--cache__standard" name="tarifStandart" id="standardExcu" checked='checked' onclick="sessionStorage.typeTarifExcu='Tarif Standard'">
+                    
+                    <label for="standardExcu" class="btn--radio btn--radio__gauche btn--radio__standard btnStandard">Tarif standard</label>
+
+                    <input type="radio" class="radio--cache radio--cache__reduc btnReduc" name="tarifExcu" id="reducExcu" value="Réduc">
+                    
+                    <label for="reducExcu" class="btn--radio btn--radio__droite btn--radio__reduc btnReduc" id="ReducValidExcu">Réduction</label>
+                </form>
+            </div>
+
+            <div class="container--subdivision container--subdivision__bleu">
+
+                <h2 class="soustitre">Votre équipage</h2>
+
+                <ul class="liste--equipage">
+                    <li class="liste--equipage--element">
+                        <a class="liste--equipage--btn" href="#" onclick="nbrEquipage('nbrEquipageEnfantExcu', 'supprEquipageEnfantExcu');sessionStorage_equipage_excu();">
+                                <span class="liste--equipage--titre">Enfant</span>
+                                <span class="liste--equipage--nbr" id="nbrEquipageEnfantExcu">0</span>
+                                <span class="liste--equipage--age">- 12 ans</span>
+                        </a>
+                    </li>
+                    <li class="liste--equipage--element" id="supprEquipageEnfantExcu" onclick="supprEquipage('nbrEquipageEnfantExcu', 'supprEquipageEnfantExcu'); sessionStorage_equipage_excu();">
+                        <img class="liste--equipage--btn--croix" src="_img/croix.png">
+                    </li>
+
+                    <li class="liste--equipage--element">
+                        <a class="liste--equipage--btn" href="#" onclick="nbrEquipage('nbrEquipageJeuneExcu', 'supprEquipageJeuneExcu'); sessionStorage_equipage_excu();">
+                            <span class="liste--equipage--titre">Jeune</span>
+                            <span class="liste--equipage--nbr" id="nbrEquipageJeuneExcu">0</span>
+                            <span class="liste--equipage--age">12 › 25 ans</span>
+                        </a>
+                    </li>
+                    <li class="liste--equipage--element" id="supprEquipageJeuneExcu" onclick="supprEquipage('nbrEquipageJeuneExcu', 'supprEquipageJeuneExcu'); sessionStorage_equipage_excu();">
+                        <img class="liste--equipage--btn--croix" src="_img/croix.png">
+                    </li>
+
+                    <li class="liste--equipage--element">
+                        <a class="liste--equipage--btn" href="#" onclick="nbrEquipage('nbrEquipageAdulteExcu', 'supprEquipageAdulteExcu'); sessionStorage_equipage_excu();">
+                            <span class="liste--equipage--titre">Adulte</span>
+                            <span class="liste--equipage--nbr" id="nbrEquipageAdulteExcu">0</span>
+                            <span class="liste--equipage--age">26 › 65 ans</span>
+                        </a>
+                    </li>
+                    <li class="liste--equipage--element" id="supprEquipageAdulteExcu" onclick="supprEquipage('nbrEquipageAdulteExcu', 'supprEquipageAdulteExcu'); sessionStorage_equipage_excu();">
+                       <img class="liste--equipage--btn--croix" src="_img/croix.png">
+                    </li>
+
+                    <li class="liste--equipage--element">
+                        <a class="liste--equipage--btn" href="#" onclick="nbrEquipage('nbrEquipageSeniorExcu', 'supprEquipageSeniorExcu'); sessionStorage_equipage_excu();">
+                            <span class="liste--equipage--titre">Senior</span>
+                            <span class="liste--equipage--nbr" id="nbrEquipageSeniorExcu"Excu>0</span>
+                            <span class="liste--equipage--age">+ 65 ans</span></a>
+                    </li>
+                    <li class="liste--equipage--element" id="supprEquipageSeniorExcu" onclick="supprEquipage('nbrEquipageSeniorExcu', 'supprEquipageSeniorExcu'); sessionStorage_equipage_excu();">
+                        <img class="liste--equipage--btn--croix" src="_img/croix.png">
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div class="container--subdivision container--subdivision__bleu container--reduc">
+
+                <h2 class="soustitre">Votre réduction</h2>
+
+                <ul class="liste--reduc">
+                    <li class="liste--reduc--element btn_reduc" onclick="sessionstorageReduc3();">
+                        <a class="liste--reduc--btn">Réduction -50%<span class="liste--reduc--btn--soustitre">Famille nombreuse, intervention majorée...</span></a>
+                    </li>
+                    <li class="liste--reduc--element  btn_reduc"  onclick="sessionstorageReduc4();">
+                        <a class="liste--reduc--btn">Réduction -75%<span class="liste--reduc--btn--soustitre">Demandeurs d'emploi FOREM-ACTIRIS</span></a>
+                    </li>
+                    <li class="liste--reduc--element btnStandard">
+                        <a class="liste--reduc--btn">Pas de réduction</a>
+                    </li>
+                </ul>
+
+                <p class="paragraphe--avertissement">Attention, tous les passagers doivent obligatoirement présenter leur carte de réduction dans le wagon.</p>
+
+            </div>
+
+        </div>
+
+        <!-- EXCU RECAP -->
+        <div class="container container--excu--recap containerNotHome">
+            <div class="container--subdivision container--subdivision__noir">
+                <h2 class="soustitre"><span id="gareDepartRecapExcu">Namur</span> ‹ › <span id="gareArriveeExcuRecap">Gare d'arrivée</span></h2>
+
+                <ul class="liste--recap">
+                    <li class="liste--recap--element">Aller retour</li>
+                    <li class="liste--recap--element" id="typeTarifExcu">Tarif standard</li>
+                    <li class="liste--recap--element liste--recap--element__margin" id="nbrEnfantsExcu"></li>
+                    <li class="liste--recap--element liste--recap--element__margin" id="nbrJeunesExcu"></li>
+                    <li class="liste--recap--element liste--recap--element__margin" id="nbrAdultesExcu"></li>
+                    <li class="liste--recap--element liste--recap--element__margin" id="nbrSeniorExcu"></li>
+                </ul>
+
+                <p class="prix">75, -€</p>
+            </div>
+
+            <div class="container--subdivision container--subdivision__bleu">
+
+                <h2 class="soustitre">Payer</h2>
+
+                <ul class="liste--payement">
+                    <li class="liste--payement--element">
+                        <a class="liste--payement--btn cardToPay" href="#">Par carte<span class="liste--payement--btn--soustitre">Bancontact, Visa, Mastercard</span></a>
+                    </li>
+                    <li class="liste--payement--element">
+                        <a class="liste--payement--btn liquidToPay" href="#">En espèce<span class="liste--payement--btn--soustitre">Pièces ou billet</span></a>
+                    </li>
+                    <li class="liste--payement--element">
+                        <a class="liste--payement--btn phoneToPay" href="#">Via smartphone<span class="liste--payement--btn--soustitre">Pay, AndroidPay</span></a>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+
+        <!-- PAYE -->
+        <div class="container container--paye containerNotHome">
+            <div class="container--subdivision container--subdivision__noir">
+                <h2 class="soustitre">Impression du ticket</h2>
+
+                <p class="paragraphe--paye paragraphe--paye__nomargin">Merci de voyager avec SNCB !</p>
+            </div>
+            <div class="container--subdivision container--subdivision__bleu">
+
+                <h2 class="soustitre soustitre--paye">Votre prochain train :</h2>
+
+                <p class="paragraphe--paye paragraphe--paye__nomargin">Voie 4</p>
+                <p class="paragraphe--paye">Dans 15 min</p>
+
+                <p class="paragraphe--voyage">Bon voyage !</p>
+
+                <img class="img--paye" src="_img/train.png"></img>
+                
+            </div>
+
+
+        </div>
+
+        <!-- PAIEMENT -->
+        <div class="container container--paiement">
+            <h2 class="soustitre"></h2>
+
+            <p class="paragraphe--paiement"></p>
+
+            <div class="especes">
+         
+         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 512 320" enable-background="new 0 0 512 320" xml:space="preserve" id="esp" class="esp">
+            <g id="esp">
+                <g id="billet">
+                    <rect x="62.5" y="51" fill="#0075FF" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" width="366" height="199"/>
+                    <circle fill="#0075FF" stroke="#FFFFFF" stroke-width="3.8884" stroke-miterlimit="10" cx="245.9" cy="151.6" r="37.2"/>
+                    <rect x="136.5" y="140" fill="#0075FF" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" width="10" height="23"/>
+                    <rect x="346.5" y="140" fill="#0075FF" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" width="10" height="23"/>
+                </g>
+                <g id="piece2">
+                    <circle fill="#0075FF" stroke="#FFFFFF" stroke-width="3.8884" stroke-miterlimit="10" cx="400.8" cy="219" r="50.6"/>
+                    <rect x="396.5" y="208" fill="#0075FF" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" width="9" height="23"/>
+                </g>
+                <g id="piece1">
+                    <circle fill="#0075FF" stroke="#FFFFFF" stroke-width="3.8884" stroke-miterlimit="10" cx="323" cy="219" r="50.6"/>
+                    <rect x="318.5" y="208" fill="#0075FF" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" width="10" height="23"/>
+                </g>
+                <rect x="0.5" y="0" fill="none" width="512" height="320"/>
+            </g>
+            </svg>
+
+         
+     </div>
+      
+
+
+            <div class="mobile">
+         
+                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 512 320" enable-background="new 0 0 512 320" xml:space="preserve">
+                    <g id="mobile">
+                        <g id="smartphone">
+                            <rect x="62" y="100" fill="#0075FF" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" width="392" height="190"/>
+                            <rect x="137" y="117" fill="#0075FF" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" width="272" height="157"/>
+                            <path fill="#0075FF" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" d="M432,179.8c-2.3,0-4,1.9-4,4.2v21.7
+                                c0,2.3,1.7,4.2,4,4.2s4-1.9,4-4.2V184C436,181.7,434.3,179.8,432,179.8z"/>
+                            <circle fill="#0075FF" stroke="#FFFFFF" stroke-width="4.1635" stroke-miterlimit="10" cx="100.6" cy="194.8" r="20.8"/>
+                        </g>
+                        <g id="ondes1">
+
+                                <rect x="366.1" y="77.6" transform="matrix(0.7071 0.7071 -0.7071 0.7071 164.9207 -237.3299)" fill="#FFFFFF" width="5.7" height="5.7"/>
+
+                                <rect x="161.5" y="77.6" transform="matrix(0.7071 0.7071 -0.7071 0.7071 104.978 -92.6157)" fill="#FFFFFF" width="5.7" height="5.7"/>
+                            <rect x="264.1" y="55" fill="#FFFFFF" width="5.7" height="5.7"/>
+                        </g>
+                        <g id="ondes2">
+
+                                <rect x="382.8" y="60.9" transform="matrix(0.7071 0.7071 -0.7071 0.7071 158.0224 -253.9838)" fill="#FFFFFF" width="5.7" height="5.7"/>
+
+                                <rect x="144.8" y="60.9" transform="matrix(0.7071 0.7071 -0.7071 0.7071 88.3241 -85.7174)" fill="#FFFFFF" width="5.7" height="5.7"/>
+                            <rect x="264.1" y="30" fill="#FFFFFF" width="5.7" height="5.7"/>
+                        </g>
+                        <rect x="1" fill="none" width="512" height="320"/>
+                </svg>
+                 
+             </div>
+
+
+            <div class="carte">
+        
+                <svg class="carte-anim" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 512 320" enable-background="new 0 0 512 320" xml:space="preserve">
+                    <g id="carte">
+                        <g id="visa">
+                            <rect x="95" y="61" fill="#0075FF" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" width="321" height="199"/>
+                            <circle fill="#0075FF" stroke="#FFFFFF" stroke-width="3.5" stroke-miterlimit="10" cx="362.6" cy="117.1" r="23"/>
+                            <circle fill="#0075FF" stroke="#FFFFFF" stroke-width="3.5" stroke-miterlimit="10" cx="335.5" cy="117.1" r="23"/>
+
+                                <rect x="128.7" y="97.3" fill="#0075FF" stroke="#FFFFFF" stroke-width="3.031" stroke-miterlimit="10" width="40.3" height="40.3"/>
+                            <line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="148.5" y1="97" x2="148.5" y2="106"/>
+                            <line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="148.5" y1="129" x2="148.5" y2="138"/>
+                            <line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="160" y1="117.5" x2="169" y2="117.5"/>
+                            <line fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" x1="128" y1="117.5" x2="137" y2="117.5"/>
+                            <g>
+                                <path fill="#FFFFFF" d="M111.3,117.5l6.4,8.8h-3.4l-6.3-8.8l6.3-8.8h3.4L111.3,117.5z"/>
+                            </g>
+                            <rect x="2" y="0.5" fill="none" width="512" height="320"/>
+                        </g>
+                    </g>
+                </svg>
+                
+            </div>
+
+            <div class="autreMoyenPaiement" id="btnPayToOtherPay">Autres moyens de paiement</div>
+        </div>
+
+
+
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <a class="footer--btn footer--btn__prec" href="#" id="btnPrecedent">‹ Précédent</a>
+            <a class="footer--btn footer--btn__suiv" id="btnSuivant" onclick="sessionstorage_gares()" href="#">Suivant ›</a>
+            <a href="#" id="retourAccueil" class="homeBis">Retour à l'accueil</a>
+        </div>
+
+        <script src="_js/jquery.js"></script>
+        <script src="_js/main_gare.js"></script>
+        <script src="_js/main.js"></script>
+        <script src="_js/main_sessionStorage.js"></script>
+        <script type="text/javascript">
+        //Afficher l'heure sur la borne
+        window.onload=function() {
+          horloge('div_horloge');
+        };
+         
+        function horloge(el) {
+          if(typeof el=="string") { el = document.getElementById(el); }
+          function actualiser() {
+            var date = new Date();
+            var str = date.getHours();
+            str += ':'+(date.getMinutes()<10?'0':'')+date.getMinutes();
+            el.innerHTML = str;
+          }
+          actualiser();
+          setInterval(actualiser,1000);
+        }
+        </script>
+
+        <script type="text/javascript">
+
+          //Ajouter des membres d'équipages
+           function nbrEquipage(elmnt, elmnt2){
+            $nbr_personnes = document.getElementById(elmnt).innerHTML;
+            $nbr_personnes = parseInt($nbr_personnes) + 1; 
+            document.getElementById(elmnt).innerHTML= $nbr_personnes;
+
+            document.getElementById(elmnt2).style.display = "block";
+          }
+
+          //Supprimer des membres de l'équipage
+          function supprEquipage(elmnt, elmnt2){
+            document.getElementById(elmnt).innerHTML=0;
+            document.getElementById(elmnt2).style.display = "none";
+
+          }
+
+
+          // AutoComplete
+
+          // ligne dans la console
+            _length = _resultsDepartBillet.length,
+            $_resultDepartBillet = $( '.inputDepartBillet' ),
+            $_searchDepartBillet = $( '.searchDepartBillet' ),
+
+            $_resultArriveeBillet = $( '.inputArriveeBillet' ),
+            $_searchArriveeBillet = $( '.searchArriveeBillet' ),
+
+            $_resultArriveeExcu = $( '.inputArriveeExcu' ),
+            $_searchArriveeExcu = $( '.searchArriveeExcu' ),
+
+            $_resultDepartExcu = $( '.inputDepartExcu' ),
+            $_searchDepartExcu = $( '.searchDepartExcu' ),
+
+            $_resultArriveeExcu = $( '.inputArriveeExcu' ),
+            $_searchArriveeExcu = $( '.searchArriveeExcu' ),
+
+            $_searchContainer = $( '.container--trajet' ),
+            _resultPlaceholder = $_resultDepartBillet.val();
+
+
+            //DEPART BILLET
+                $_searchDepartBillet.on( "keydown", function ( e ) {
+                    if ( _keys.indexOf( e.keyCode ) !== -1 ) {
+                        $_searchDepartBillet.val( $_resultDepartBillet.val() );
+                        return false;
+                    }
+                }).on( "keyup", function () {
+                    var value = $_searchDepartBillet.val().replace( _rEscapeChars, "" ),
+                        regex = new RegExp( "^"+value, "i" ),
+                        matches = [];
+                    if ( value ) {
+                        for ( var i = _length; i--; ) {
+                        if ( regex.test( _resultsDepartBillet[ i ] ) ) {
+                            matches.push( _resultsDepartBillet[ i ] );
+                        } else {
+                            $_resultDepartBillet.val( "" );
+                        }
+                    }
+                    if ( matches.length ) {
+                        for ( var i = matches.length; i--; ) {
+                            $_resultDepartBillet.val( matches[ i ] );
+                        }
+                    }
+                    } else {
+                        $_resultDepartBillet.val( _resultPlaceholder );
+                    }
+
+                    console.log= matches;
+                });
+
+            //ARRIVEE BILLET
+                $_searchArriveeBillet.on( "keydown", function ( e ) {
+                    if ( _keys.indexOf( e.keyCode ) !== -1 ) {
+                        $_searchArriveeBillet.val( $_resultArriveeBillet.val() );
+                        return false;
+                    }
+                }).on( "keyup", function () {
+                    var value = $_searchArriveeBillet.val().replace( _rEscapeChars, "" ),
+                        regex = new RegExp( "^"+value, "i" ),
+                        matches = [];
+                    if ( value ) {
+                        for ( var i = _length; i--; ) {
+                            if ( regex.test( _resultsArriveeBillet[ i ] ) ) {
+                                matches.push( _resultsArriveeBillet[ i ] );
+                            } else {
+                                $_resultArriveeBillet.val( "" );
+                            }
+                        }
+                        if ( matches.length ) {
+                            for ( var i = matches.length; i--; ) {
+                                $_resultArriveeBillet.val( matches[ i ] );
+                            }
+                        }
+                    } else {
+                        $_resultArriveeBillet.val( _resultPlaceholder );
+                    }
+                });
+
+            //DEPART Excu
+                $_searchDepartExcu.on( "keydown", function ( e ) {
+                    if ( _keys.indexOf( e.keyCode ) !== -1 ) {
+                        $_searchDepartExcu.val( $_resultDepartExcu.val() );
+                        return false;
+                    }
+                }).on( "keyup", function () {
+                    var value = $_searchDepartExcu.val().replace( _rEscapeChars, "" ),
+                        regex = new RegExp( "^"+value, "i" ),
+                        matches = [];
+                    if ( value ) {
+                        for ( var i = _length; i--; ) {
+                        if ( regex.test( _resultsDepartExcu[ i ] ) ) {
+                            matches.push( _resultsDepartExcu[ i ] );
+                        } else {
+                            $_resultDepartExcu.val( "" );
+                        }
+                    }
+                    if ( matches.length ) {
+                        for ( var i = matches.length; i--; ) {
+                            $_resultDepartExcu.val( matches[ i ] );
+                        }
+                    }
+                    } else {
+                        $_resultDepartExcu.val( _resultPlaceholder );
+                    }
+
+                });
+
+
+        //ARRIVEE EXCU
+         $_searchArriveeExcu.on( "keydown", function ( e ) {
+                    if ( _keys.indexOf( e.keyCode ) !== -1 ) {
+                        $_searchArriveeExcu.val( $_resultArriveeExcu.val() );
+                        return false;
+                    }
+                }).on( "keyup", function () {
+                    var value = $_searchArriveeExcu.val().replace( _rEscapeChars, "" ),
+                        regex = new RegExp( "^"+value, "i" ),
+                        matches = [];
+                    if ( value ) {
+                        for ( var i = _length; i--; ) {
+                            if ( regex.test( _resultsArriveeExcu[ i ] ) ) {
+                                matches.push( _resultsArriveeExcu[ i ] );
+                            } else {
+                                $_resultArriveeExcu.val( "" );
+                            }
+                        }
+                        if ( matches.length ) {
+                            for ( var i = matches.length; i--; ) {
+                                $_resultArriveeExcu.val( matches[ i ] );
+                            }
+                        }
+                    } else {
+                        $_resultArriveeExcu.val( _resultPlaceholder );
+                    }
+                });
+
+        </script>
+
+
+
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

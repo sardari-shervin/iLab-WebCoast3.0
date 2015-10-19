@@ -1,0 +1,479 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="apple-mobile-web-app-title" content="SNCB">
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/> -->
+
+        <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="favicons/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/manifest.json">
+        <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+        <meta name="theme-color" content="#0075ff">
+        <title>SNCB</title>
+        <script src="https://use.typekit.net/bzl4kgv.js"></script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
+        <link rel="stylesheet" href="_css/reset.css">
+        <link rel="stylesheet" href="_css/style.css">
+        <link rel="stylesheet" href="_css/anim.css">
+        <link rel="author" href="humans.txt">
+    </head>
+    <body class="body">
+
+        <div class="header">
+
+            <div class="fleche btn--prec fleche--news--match">
+                <div class="fleche__barre barre1"></div>
+                <div class="fleche__barre barre2"></div>
+            </div>
+
+            <h1 class="title">Créer un compte</h1>
+        </div>
+
+        <div class="container container__accueil">
+            <img class="img--accueil" src="_img/train.png" alt="">
+
+            <p class="paragraphe--accueil">La SNCB vous permet d’acheter votre billet en deux clics pour ne plus jamais manquer votre train.</p>
+
+            <a class="btn--accueil btn--accueil__creer btnCreate" href="#">Créer un compte</a>
+            <a class="btn--accueil btn--accueil__connect btnConnect" href="#">Se connecter</a>
+        </div>
+
+        <div class="container container__creer">
+
+            <form class="form form__creer" id="formCreer">
+
+                <fieldset class="fieldset fieldset__first">
+
+                    <legend class="fieldset--title">Informations personnelles</legend>
+
+                    <input class="input" placeholder="Prénom" name="prenom" type="text" id="creerPrenom">
+                    <input class="input input__last" placeholder="Nom" name="nom" type="text" id="creerNom">
+
+                </fieldset>
+
+                <fieldset class="fieldset">
+
+                    <legend class="fieldset--title">Informations de connexion</legend>
+
+                    <input class="input" placeholder="Adresse e-mail" name="mail" type="email" id="creerMail">
+                    <input class="input" placeholder="Mot de passe" name="mdp" type="text" id="creerMdp">
+
+                </fieldset>
+
+                <fieldset class="fieldset">
+
+                    <legend class="fieldset--title">Grâce à votre date de naissance, nous vous proposons le tarif le plus avantageux pour vous.</legend>
+
+                    <input class="input" placeholder="Date de naissance" name="naissance" type="text" id="creerNaissance">
+                    <input class="input input__last" placeholder="Numéro de carte de réduction" name="reduc" type="text" id="creerReduc">
+
+                </fieldset>
+
+                <a class="btn btn__blue btn--ajout--carte btnCreerAjoutCarte">Ajouter une carte de crédit</a>
+
+                <a class="btn btn--suiv btn--suiv__activ btnActivate" id="btnActivate">Activer mon compte</a>
+
+
+            </form>
+        </div>
+        <div class="container container__connexion">
+
+            <form class="form form__creer" id="formConnexion">
+
+                <fieldset class="fieldset fieldset__first">
+
+                    <!-- <legend class="fieldset--title">Informations personnelles</legend> -->
+
+                    <input class="input input__last input__margintop" placeholder="Adresse email" name="connexionmail" type="text" id="connexionMail">
+                    <input class="input input__last input__margintop" placeholder="Mot de passe" name="connexionmdp" type="text" id="connexionMdp">
+
+                </fieldset>
+
+                <a class="btn btn--suiv btn--suiv__activ btnConnexion" id="btnConnexion">Connexion</a>
+
+
+            </form>
+        </div>
+
+
+
+        <!-- ACHAT -->
+        <div class="container container__achat containerContenu">
+
+            <form class="form form__achat" id="formBillet">
+
+                <fieldset class="fieldset fieldset__first">
+
+                    <legend class="fieldset--title">Trajet</legend>
+
+                    <label class="label__ajout label__ajout__trajet" for="inputDepart">De</label>
+                    <input class="input input__ajout__trajet input__ajout" placeholder="Depart" name="depart" type="text" id="inputDepart">
+
+                    <label class="label__ajout label__ajout__trajet label__last" for="inputArrivee">À</label>
+                    <input class="input input__ajout input__ajout__trajet input__last" placeholder="Destination" name="destination" type="text" id="inputArrivee">
+
+                </fieldset>
+
+                <fieldset class="fieldset">
+
+                    <input class="radio--cache radio__aller" name="allerretour" id="aller" value="Aller simple" type="radio" checked="checked">
+                    <label for="aller" class="input--radio input--radio__aller">Aller simple</label>
+                    
+                    <input class="radio--cache radio__retour" name="allerretour" id="allerretour" value="Aller Retour" type="radio" >
+                    <label for="allerretour" class="input--radio input--radio__retour">Aller-Retour</label>
+                    
+                </fieldset>
+
+                <fieldset class="fieldset fieldset__supp">
+
+                    <legend class="fieldset--title">Vos suppléments</legend>
+
+                    <p class="input input__trajet input__trajet__velo"><span id="inputVelo"></span>Vélo(s)</p>
+                    <img class="img--croix annulVelo" src="_img/croix.png" alt=""/>
+                    <p class="input input__trajet input__trajet__animaux input__last"><span id="inputAnimaux"></span>Animal(aux)</p>
+                    <img class="img--croix annulAnimaux" src="_img/croix.png" alt=""/>
+                    
+                </fieldset>
+
+                <a class="btn__supp">+ Suppléments</a>
+
+
+                <input class="input--favoris" id="favoris" type="checkbox" name="favoris" value="favoris">
+                <label class="label--favoris" for="favoris">Ajouter ce trajet aux favoris</label>
+            </form>
+            <a class="btn btnConfirm" type="submit" id="confirmBillet">Acheter</a>
+        </div>
+
+        <!-- RECAP -->
+        <div class="container container__recap containerContenu">
+
+            <h2 class="intitules intitules__trajet">Trajet</h2>
+            <p class="info info__trajet"><span id="recapDepart"></span> > <span id="recapArrivee"></span></p>
+
+            <div class="container__typetarif container__type">
+                <h2 class="intitules">Type</h2>
+                <p class="info" id="recapType">Aller simple</p>
+            </div>
+            <div class="container__typetarif">
+                <h2 class="intitules">Tarif</h2>
+                <p class="info">Standard</p>
+            </div>
+
+            <h2 class="intitules">Suppléments</h2>
+            <div class="container__supp">
+            </div>
+
+            <p class="prix">12,-€</p>
+
+            <a class="btn btn--ajout--paye btnPay" id="payBillet">Payer</a>
+        </div>
+
+        <!-- MERCI -->
+        <div class="container container__merci containerContenu">
+
+            <h2 class="intitules intitules__trajet">Prochains trains</h2>
+            <p class="info info__trajet info__trajet__merci"><span id="merciDepart"></span> > <span id="merciArrivee"></span></p>
+
+            <div class="container__typetarif container__type">
+                <h2 class="intitules intitules__center">Voie</h2>
+                <p class="info info__first info__center">3</p>
+                <p class="info info__center">9</p>
+            </div>
+            <div class="container__typetarif">
+                <h2 class="intitules intitules__center">Dans</h2>
+                <p class="info info__first info__center">12 min</p>
+                <p class="info info__center">28 min</p>
+            </div>
+
+
+            <a class="btn btn__blue btn--placelibre btnPlacesFromMerci">Voir les places libres</a>
+
+            <a class="btn btnVoirBillet">Voir le billet</a>
+        </div>
+
+
+        <!-- MES BILLETS -->
+        <div class="container container__billets containerContenu">
+            <ul class="liste__billets" id="listeBillets">
+                <!-- <li class="liste__billet--element liste__billet--element__active">
+                    <h2 class="title__billet">Namur > Ottignies</h2>
+                    <div class="container__typetarif container__typetarif__billet">
+                        <h2 class="intitules__billet">Voie</h2>
+                        <p class="info__billet">3</p>
+                    </div>
+                    <div class="container__typetarif container__typetarif__billet">
+                        <h2 class="intitules__billet">Dans</h2>
+                        <p class="info__billet">12 min</p>
+                    </div>
+                    <a class="btn btn__white btnPlacesFromBillets">Voir les places libres</a>
+                </li>
+                <li class="liste__billet--element">
+                    <h2 class="title__billet">Namur > Ottignies</h2>
+                    <div class="container__typetarif container__typetarif__billet">
+                        <h2 class="intitules__billet">Voie</h2>
+                        <p class="info__billet">3</p>
+                    </div>
+                    <div class="container__typetarif container__typetarif__billet">
+                        <h2 class="intitules__billet">Dans</h2>
+                        <p class="info__billet">12 min</p>
+                    </div>
+                    <a class="btn btn__white btnPlacesFromBillets">Voir les places libres</a>
+                </li> -->
+            </ul>
+        </div>
+
+
+        <!-- MON COMPTE -->
+        <div class="container container__compte containerContenu">
+
+            <div class="fieldset fieldset__first">
+
+                <h2 class="fieldset--title fieldset--title__compte">Informations personnelles</h2>
+
+                <p class="input input__compte" id="comptePrenom"></p>
+                <p class="input input__compte input__last" id="compteNom"></p>
+
+            </div>
+
+            <div class="fieldset">
+
+                <h2 class="fieldset--title fieldset--title__compte">Informations de connexion</h2>
+
+                <p class="input input__compte" id="compteMail"></p>
+                <p class="input input__compte" id="compteMdp"></p>
+
+            </div>
+
+            <div class="fieldset">
+
+                <h2 class="fieldset--title fieldset--title__compte">Grâce à votre date de naissance, nous vous proposons le tarif le plus avantageux pour vous.</h2>
+
+                <p class="input input__compte" id="compteNaissance"></p>
+                <p class="input input__compte input__last" id="compteReduc"></p>
+
+            </div>
+
+            <!-- <a href="#" class="input input__last cartBG">Carte de BG</a> -->
+
+            <a class="btn btn__blue btn--ajout--carte__compte ajoutCartFromCompte">Ajouter une carte</a>
+
+            <a href="#" class="btn btn--suiv btn--suiv__activ modifCompte">Modifier</a>
+        </div>
+
+        <!-- CARTE -->
+        <!-- <div class="container container__carte containerContenu">
+            <div class="fieldset fieldset__first">
+                <h2 class="fieldset--title fieldset--title__compte">N°</h2>
+                <p class="input input__compte">123 4567 890</p>
+            </div>
+            <div class="fieldset">
+                <h2 class="fieldset--title fieldset--title__compte">Cryptogramme</h2>
+                <p class="input input__compte">456</p>
+            </div>
+            <div class="fieldset">
+                <h2 class="fieldset--title fieldset--title__compte">Date</h2>
+                <p class="input input__compte">12/21</p>
+            </div>
+            <div class="fieldset">
+                <h2 class="fieldset--title fieldset--title__compte fieldset--title__margin">Un alias est le nom que vous donnez à votre carte pour mieux les différencier</h2>
+                <p class="input input__compte">BG's Card</p>
+            </div>
+            <a href="#" class="btn btn__modif">Modifier</a>
+        </div> -->
+
+        <!-- AJOUT CARTE -->
+        <div class="container container__ajoutcarte containerContenu">
+
+            <form class="form__ajout" id="formAjoutCard">
+
+                <fieldset class="fieldset fieldset__first">
+
+                    <label class="label__ajout" for="inputNumero">N° de la carte</label>
+                    <input class="input input__ajout" placeholder="1234 5678 9009 8765" name="numero" type="text" id="inputNumero">
+
+                </fieldset>
+
+                <fieldset class="fieldset">
+
+                    <label class="label__ajout" for="crypto">Cryptogramme</label>
+                    <input class="input input__ajout" placeholder="123" name="crypto" type="text" id="inputCrypto">
+
+                </fieldset>
+
+                <fieldset class="fieldset">
+
+                    <label class="label__ajout label__last" for="inputExpi">Date d'expi</label>
+                    <input class="input input__ajout input__last" placeholder="12/21" name="expi" type="text" id="inputExpi">
+
+                </fieldset>
+
+                <fieldset class="fieldset">
+
+                    <h2 class="fieldset--title  fieldset--title__margin fieldset--title__ajout">Un alias est le nom que vous donnez à votre carte pour mieux les différencier</h2>
+                    <label class="label__ajout label__last" for="inputNameCard">Alias</label>
+                    <input class="input input__ajout input__last" placeholder="Ma carte" name="name--carte" type="text" id="inputNameCard">
+
+                </fieldset>
+
+            </form>
+
+            <a href="#" class="btn btn__ajouter btnAjoutCarte" id="btnAjoutCard">Ajouter</a>
+        </div>
+
+
+        <!-- FAVORIS -->
+        <div class="container container__favoris containerContenu">
+
+            <ul class="liste__billets" id="listeFav">
+                <!-- <li class="liste__billet--element liste__billet--element__active">
+                    <h2 class="title__billet"><span>Namur<span> > <span id="">Ottignies</h2>
+                    <div class="container__typetarif container__typetarif__billet">
+                        <h2 class="intitules__billet">Type</h2>
+                        <p class="info__billet">Aller simple</p>
+                    </div>
+                    <div class="container__typetarif container__typetarif__billet">
+                        <h2 class="intitules__billet">Tarif</h2>
+                        <p class="info__billet">Standard</p>
+                    </div>
+                    <a class="btn btn__white">Payer</a>
+                </li> -->
+            </ul>
+        </div>
+
+        <!-- PLACE DANS LE TRAIN -->
+        <div class="container container__train containerContenu">
+
+            <ul class="nav__wagon">
+                <li class="nav__wagon--element">
+                    <a class="nav__wagon--btn wagon1 nav__wagon--btn__active">Wagon 1</a>
+                </li>
+                <li class="nav__wagon--element">
+                    <a class="nav__wagon--btn wagon2">Wagon 2</a>
+                </li>
+                <li class="nav__wagon--element">
+                    <a class="nav__wagon--btn wagon3">Wagon 3</a>
+                </li>
+                <li class="nav__wagon--element">
+                    <a class="nav__wagon--btn wagon4">Wagon 4</a>
+                </li>
+                <li class="nav__wagon--element">
+                    <a class="nav__wagon--btn wagon5">Wagon 5</a>
+                </li>
+            </ul>
+
+            <ul class="liste__wagon">
+                <li class="liste__wagon--element liste__wagon--element__active">
+                    <img class="liste__wagon--img" src="_img/_wagons/wagon1.jpg">
+                </li>
+                <li class="liste__wagon--element">
+                    <img class="liste__wagon--img" src="_img/_wagons/wagon2.jpg">
+                </li>
+                <li class="liste__wagon--element">
+                    <img class="liste__wagon--img" src="_img/_wagons/wagon3.jpg">
+                </li>
+                <li class="liste__wagon--element">
+                    <img class="liste__wagon--img" src="_img/_wagons/wagon4.jpg">
+                </li>
+                <li class="liste__wagon--element">
+                    <img class="liste__wagon--img" src="_img/_wagons/wagon5.jpg">
+                </li>
+            </ul>
+
+        </div>
+
+
+
+
+        <div class="container__navigation">
+            <ul class="navigation">
+                <li class="navigation--element">
+                    <a class="navigation--lien navigation--lien__active navAchat" href="#">
+                        <div class="icon--nav icon--achat actif" src="_img/achat.png"></div>
+                        <p class="text--nav">Achat billet</p>
+                    </a>
+                </li>
+                <li class="navigation--element">
+                    <a class="navigation--lien navBillets" href="#">
+                        <div class="icon--nav icon--billets" src="_img/billets.png"></div>
+                        <p class="text--nav">Mes billets</p>
+                    </a>
+                </li>
+                <li class="navigation--element">
+                    <a class="navigation--lien navCompte" href="#">
+                        <div class="icon--nav icon--compte" src="_img/compte.png"></div>
+                        <p class="text--nav">Mon compte</p>
+                    </a>
+                </li>
+                <li class="navigation--element">
+                    <a class="navigation--lien navFavoris" href="#">
+                        <div class="icon--nav icon--favoris" src="_img/favoris.png"></div>
+                        <p class="text--nav">Favoris</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <script src="_js/jquery.js"></script>
+        <!-- // <script src="_js/main_gare.js"></script> -->
+        <script src="_js/main.js"></script>
+
+        <script type="text/javascript">
+
+            
+
+            // function nbrEquipage(elmnt, elmnt2){
+            //     $nbr_personnes = document.getElementById(elmnt).innerHTML;
+            //     $nbr_personnes = parseInt($nbr_personnes) + 1; 
+            //     document.getElementById(elmnt).innerHTML= $nbr_personnes;
+            //     document.getElementById(elmnt2).style.display = "block";
+            // }
+
+            // //Supprimer des membres de l'équipage
+            // function supprEquipage(elmnt, elmnt2){
+            //     document.getElementById(elmnt).innerHTML=0;
+            //     document.getElementById(elmnt2).style.display = "none";
+            // }
+
+            // $(".input__trajet").before('<div class="img__input"></div>');
+        </script>
+
+
+
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

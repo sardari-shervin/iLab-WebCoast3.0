@@ -1,0 +1,576 @@
+html, .body{
+	height: 100%;
+	width: 100%;
+	font-family: "proxima-nova",sans-serif;
+}
+	.container{
+		position: fixed;
+		width: 100%;
+		height: calc(100% - 90px);
+		top: 60px;
+		background: #FAFAFA;
+	}
+	/* Formulaire */
+		.fieldset{}
+		.fieldset__first{margin: 0;}
+			.fieldset--title{
+				width: calc(100% - 24px);
+				padding: 12px 12px 6px 12px;
+				color: #BEBEBE;
+				font-size: 15px;
+				line-height: 150%;
+			}
+			input{-webkit-appearance: none;}
+			.input{
+				display: block;
+				width: calc(100% - 24px);
+				padding: 12px;
+				background: #fff;
+				border: none;
+				border-top: 1px solid #E8E8E8;
+				border-radius: 0;
+				box-shadow: none;
+				margin: 0;
+				font-size: 18px;
+				color: #BEBEBE;
+				position: relative;
+			}
+			.input__last{border-bottom: 1px solid #E8E8E8;}
+			.btn{
+				width: calc(100% - 24px);
+				position: absolute;
+				left: 12px;
+				bottom: 12px;
+				font-size: 22px;
+				background: #4A90E2;
+				color: #fff;
+				border: none;
+				border-radius: 3px;
+				padding: 12px 0;
+				text-align: center;
+			}
+			.btn__blue{
+				background: transparent;
+				border: 1px solid #4A90E2;
+				color: #4A90E2;
+				width: calc(100% - 26px);
+			}
+			.btn__white{
+				background: transparent;
+				border: 1px solid #fff;
+				color: #fff;
+				width: calc(100% - 2px);
+				position: static;
+				display: block;
+				clear: both;
+			}
+
+/* HEADER */
+	.status{
+		position: fixed;
+		height: 20px;
+		top: 0;
+		width: 100%;
+		background: #4A90E2;
+	}
+	.header{
+		position: fixed;
+		top: 20px;
+		z-index: 1;
+		background: #4A90E2;
+		height: 40px;
+		width: 100%;
+		line-height: 40px;
+	}	
+		/*.btn--prec{
+			position: absolute;
+			z-index: 100;
+		}*/
+		/*.btn--prec{opacity: 0;}*/
+		.title{
+			color: #fff;
+			text-align: center;
+			font-size: 26px;
+		}
+
+		.fleche {
+			position: absolute;
+			z-index: 10000000;
+			top: 18px;
+			left: 12px;
+			width: 20px;
+			height: 20px;
+			transition: .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		}
+		.fleche__barre {
+			height: 1px;
+			width: 15px;
+			background: #fff;
+			-webkit-transform-origin: left;
+			transition: .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		}
+		.fleche .barre1 {-webkit-transform: translateY(2px) rotate(-45deg);}
+		.fleche .barre2 {-webkit-transform: translateY(0px) rotate(45deg);}
+
+/* NAV */
+	.container__navigation{
+		width: 100%;
+		height: 50px;
+		background: #fff;
+		position: fixed;
+		bottom: 0;
+		z-index: 1000000000;
+	}
+		.navigation{height: 100%;}
+			.navigation--element{
+				width: calc(25% - 1px);
+				float: left;
+				height: 100%;
+			}
+			.navigation--element:nth-child(2){
+				border-left: 1px solid #E8E8E8;
+				border-right: 1px solid #E8E8E8;
+			}
+			.navigation--element:nth-child(3){
+				border-right: 1px solid #E8E8E8;
+				width: 25%;
+			}
+				.navigation--lien{
+					display: block;
+					text-align: center;
+					color: #404040;
+					font-size: 12px;
+					height: 100%;
+					/*line-height: 50px;*/
+				}
+					.icon--nav{
+						display: block;
+						width: 30px;
+						height: 30px;
+						margin: 0 auto;
+					}
+					.icon--achat{
+						background: url(../_img/achat.png);
+						background-size: cover;
+					}
+					.icon--achat.actif{
+						background: url(../_img/achat__actif.png);
+						background-size: cover;
+					}
+					.icon--billets{
+						background: url(../_img/billets.png);
+						background-size: cover;
+					}
+					.icon--billets.actif{
+						background: url(../_img/billets__actif.png);
+						background-size: cover;
+					}
+					.icon--compte{
+						background: url(../_img/compte.png);
+						background-size: cover;
+					}
+					.icon--compte.actif{
+						background: url(../_img/compte__actif.png);
+						background-size: cover;
+					}
+					.icon--favoris{
+						background: url(../_img/favoris.png);
+						background-size: cover;
+					}
+					.icon--favoris.actif{
+						background: url(../_img/favoris__actif.png);
+						background-size: cover;
+					}
+				.navigation--lien__active{
+					color: #fff;
+					background: #4A90E2;
+				}
+
+/* ACCUEIL */
+	.container__accueil{
+		background: #4A90E2;
+		width: calc(100% - 24px);
+		padding: 0 12px;
+		height: 100%;
+		top: 0;
+		z-index: 1000000000;
+	}
+	.img--accueil{
+		display: block;
+		width: 75%;
+		margin: 0 auto;
+		margin-top: 36px;
+	}
+
+	.paragraphe--accueil{
+		color: #fff;
+		font-size: 18px;
+		line-height: 150%;
+		margin-top: 36px;
+	}
+
+	.btn--accueil{
+		display: block;
+		width: calc(100% - 24px);
+		padding: 12px 0;
+		color: #fff;
+		text-align: center;
+		font-size: 26px;
+		position: absolute;
+		bottom: 24px;
+	}
+	.btn--accueil__creer{
+		background: #fff;
+		color: #4A90E2;
+		bottom: 98px;
+	}
+	.btn--accueil__connect{font-size: 22px;}
+
+/* CREER COMPTE */
+	.container__creer{
+		height: calc(100% - 40px);
+		z-index: 1000000;
+	}
+	.container__creer__modif{height: calc(100% - 40px);}
+		.btn--ajout--carte{bottom: 70px;}
+		.input__carte{
+			padding: 6px 12px;
+			margin-top: 12px;
+		}
+/* CONNEXION */
+	.container__connexion{
+		height: calc(100% - 40px);
+		z-index: 1000000;
+	}
+		.input__margintop{
+			margin-top: 24px;
+		}
+
+/* AJOUT CARTE */
+	.container__ajoutcarte{
+		padding-top: 24px;
+		height: calc(100% - 114px);
+	}
+		.fieldset--title__ajout{clear: both;}
+		.label__ajout{
+			font-size: 12px;
+			background: #fff;
+			width: 88px;
+			padding-left: 12px;
+			height: 46px;
+			line-height: 46px;
+			border-top: 1px solid #E8E8E8;
+			color: #BEBEBE;
+			float: left;
+			clear: both;
+			text-align: center;
+		}
+		.label__last{
+			border-bottom: 1px solid #E8E8E8;
+			height: 45px;
+			line-height: 45px;
+		}
+		.input__ajout{
+			float: left;
+			width: calc(100% - 124px);
+		}
+
+/* ACHAT */	
+	/*.input__depart::after{
+		content: 'De';
+		display: block;
+		width: 20px;
+		height: 20px;
+		color: #BEBEBE;
+		position: absolute;
+		left: 12px;
+		bottom: -100px;
+		background: red;
+		z-index: 1000;
+	}*/
+
+	/*.form__achat{
+		position: absolute;
+		width: 100%;
+		top: 50%;
+		-webkit-transform: translateY(-60%);
+	}*/
+	.fieldset__supp{
+		height: 0;
+		overflow: hidden;
+	}
+		.label__ajout__trajet{
+			width: 54px;
+			text-align: center;
+			padding: 0;
+			/*padding-left: 12px;*/
+		}
+		.input__ajout__trajet{
+			width: calc(100% - 66px);
+			padding-left: 0;
+		}
+		.input__trajet__velo::before{background: url(../_img/velo.png);}
+		.input__trajet__animaux::before{background: url(../_img/animaux.png);}
+		.input__trajet::before{
+			content: '';
+			display: block;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			z-index: 1000;
+			background-size: cover;
+			left: 12px;
+			top: 5px;
+		}
+		.input__trajet{
+			padding-left: 54px;
+			width: calc(100% - 66px);
+			position: relative;
+		}
+		.input__trajet__velo, .input__trajet__animaux{
+			width: calc(100% - 119px);
+			float: left;
+		}
+
+		.annul__velo{top: -1px;}
+		.img--croix{
+			display: block;
+			height: 42px;
+			width: 41px;
+			padding-right: 12px;
+			float: left;
+			background: #fff;
+			border-top: 1px solid #E8E8E8;
+		}
+		.annulAnimaux{
+			border-bottom: 1px solid #E8E8E8;
+		}
+
+	.radio--cache{display: none;}
+	.input--radio{
+		display: block;
+		width: calc(50% - 14px);
+		float: left;
+		font-size: 18px;
+		color: #fff;
+		background: #E8E8E8;
+		border: 1px solid #E8E8E8;
+		padding: 16px 0;
+		margin: 36px 0 24px 0;
+		text-align: center;
+	}
+	.input--radio__aller{
+		margin-left: 12px;
+		border-radius: 26px 0 0 26px;
+	}
+	.input--radio__retour{border-radius: 0 26px 26px 0;}
+	.radio__aller:checked ~ .input--radio__aller, .radio__retour:checked ~ .input--radio__retour{
+		background: #fff;
+		color: #404040;
+	}
+	.btn__supp{
+		display: block;
+		width: calc(100% - 26px);
+		font-size: 18px;
+		padding: 16px 0;
+		text-align: center;
+		margin: 24px 0 36px 12px;
+		border: 1px solid #E8E8E8;
+		color: #BEBEBE;
+		background: #fff;
+		border-radius: 26px;
+	}
+	.input--favoris{
+		display: block;
+		float: left;
+		width: 24px;
+		height: 24px;
+		border-radius: 3px;
+		border: 1px solid #BEBEBE;
+		padding: 0;
+		margin: 0;
+		margin-left: 12px;
+	}
+	.input--favoris:checked{
+		background: #4A90E2;
+	}
+	.label--favoris{
+		display: block;
+		float: left;
+		width: calc(100% - 60px);
+		padding-left: 12px;
+		color: #BEBEBE;
+		font-size: 18px;
+		height: 24px;
+		line-height: 24px;
+	}
+	.input--favoris:checked ~ .label--favoris{color: #4A90E2;}
+		
+/* RECAP */
+	.container__recap{}
+			.intitules{
+				color: #BEBEBE;
+				font-size: 15px;
+				padding: 0 12px;
+				clear: both;
+			}
+			.intitules__trajet{
+				margin-top: 36px;
+			}
+			.info{
+				color: #404040;
+				font-size: 22px;
+				padding: 0 12px;
+				font-weight: 300;
+				margin-top: 6px;
+			}
+			.info__trajet{font-size: 42px;}
+		.container__typetarif{
+			width: calc(50% - 12px);
+			float: left;
+			margin-top: 48px;
+			margin-bottom: 24px;
+			overflow: hidden;
+		}
+		.container__type{margin-left: 12px;}
+		.container__typetarif > .intitules, .container__typetarif > .info{
+			padding: 0;
+			/*margin: 0;*/
+		}
+		.prix{
+			text-align: center;
+			color: #4A90E2;
+			font-size: 70px;
+			margin-top: 60px;
+		}
+		.btn--ajout--paye{
+			padding: 24px 0;
+			font-size: 36px;
+		}
+		/*.container__type{margin-left: 12px;}*/
+
+/* MERCI */
+	.intitules__center,
+	.info__center{text-align: center;}
+	.info__center{
+		font-size: 36px;
+		margin-top: 24px;
+	}
+	/*.info__first{margin-top: 36px;}*/
+	/*.info__trajet__merci{font-size: 22px;}*/
+	.btn--placelibre{bottom: 72px;}
+	.btn--voirbillet{bottom: 74px;}
+
+/* MES BILLETS */
+	.container__billets{
+		padding-top: 12px;
+	}
+		.liste__billets{
+			width: calc(100% - 24px);
+			margin: 0 auto;
+		}
+			.liste__billet--element{
+				padding: 24px 12px 12px 12px;
+				background: #4A90E2;
+				overflow: hidden;
+				border-radius: 3px;
+				height: 44px;
+				margin-bottom: 12px;
+				-webkit-transition: all .6s ease-out both;
+				transition: all .6s ease-out both;
+			}
+			.liste__billet--element__active{height: auto;}
+				.title__billet{
+					text-align: center;
+					color: #fff;
+					font-size: 32px;
+				}
+				.intitules__billet{
+					font-size: 15px;
+					color: #fff;
+					text-align: center;
+				}
+				.info__billet{
+					font-size: 22px;
+					color: #fff;
+					text-align: center;
+				}
+			.container__typetarif__billet{margin-top: 24px;}
+
+/* MON COMPTE */
+	.fieldset--title__compte{border-bottom: 1px solid #BEBEBE;}
+	.fieldset--title__margin{margin-top: 24px;}
+	.input__compte{
+		background: transparent;
+		border: 0;
+		color: #404040;
+	}
+	/*.input__cartes{border-bottom: }*/
+	.btn__modif{
+		display: block;
+		position: static;
+		width: calc(100% - 24px);
+		margin: 36px 0 0 12px;
+	}
+	.btn--ajout--carte__compte{
+		bottom: 70px;
+	}
+
+/* FAVORIS */
+	.container__favoris{padding-top: 12px;}
+
+/* PLACE TRAIN */
+	.nav__wagon{
+		width: 100px;
+		height: calc(100% - 12px);
+		padding-top: 12px;
+		float: right;
+	}
+		.nav__wagon--element{height: 50px;}
+			.nav__wagon--btn{
+				display: block;
+				height: 50px;
+				line-height: 50px;
+				font-size: 18px;
+				color: #BEBEBE;
+				padding-left: 12px;
+			}
+			.nav__wagon--btn__active{color: #4A90E2;}
+
+	.liste__wagon{
+		position: absolute;
+		left: 12px;
+		width: calc(100% - 112px);
+		-webkit-transition: all .6s ease both;
+		transition: all .6s ease both;
+	}
+		.liste__wagon--element, .liste__wagon--img{
+			width: 100%;
+		}
+		/*.liste__wagon--element{
+			position: fixed;
+			-webkit-transform: translateY(100%);
+		}
+		.liste__wagon--element__active{
+			-webkit-transform: translateY(0);
+		}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
